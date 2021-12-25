@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title></title>
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+	<link rel="manifest" href="/site.webmanifest" />
+</head>
+
+<body>
+	<!-- loader shade -->
+	<div id="loader">wait</div>
+
+
+
+	<!-- videos -->
+	<div id="videos">
+		<video src="" id="other_peer"></video>
+		<hr />
+		<video src="" id="peer"></video>
+	</div>
+
+
+
+	<!-- message -->
+	<div class="message_box">
+
+		<!-- messager -->
+		<div class="messenger_wrap">
+			<ul id="messages">
+				<li class="he">CCP</li>
+				<li class="me">stand with Honkong</li>
+			</ul>
+			<form id="draft_message">
+				<textarea name="message_text" id="message_text" placeholder="nice to meet you"></textarea>
+				<button type="submit">send</button>
+			</form>
+		</div>
+		<hr>
+		<!-- mannual connection -->
+		<div class="manual_connect">
+			<h3>to manually connect</h3>
+			<input type="text" id="outgoing" placeholder="your peer id" readonly />
+			<div class="pid_btns">
+				<button onclick="copeyPeerId()">copey</button>
+				<button onclick="sharePeerId()">share</button>
+			</div>
+			<form id="connect_form">
+				<input type="text" id="incoming" placeholder="other peer's id" />
+				<button type="button" onclick="connectToPeer()">connect</button>
+			</form>
+		</div>
+
+	</div>
+
+
+
+	<!-- outer wrap for pc -->
+	<div class="connection">
+		<!-- peer discovery -->
+		<div class="peer_discovery">
+			<h3>Others to connect</h3>
+			<div class="inner_wrap">
+				<ul id="peers"></ul>
+			</div>
+		</div>
+		<hr />
+		<!-- logger -->
+		<div class="log_box">
+			<h3>Process Log</h3>
+			<div class="inner_wrap">
+				<ul id="logs"></ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- scripts -->
+	<!-- peerjs & adaptor -->
+	<script src="/js/peer.js"></script>
+	<!-- gun db lib -->
+	<script src="/js/gun.js"></script>
+	<!-- local script -->
+	<script src="/js/script.js"></script>
+</body>
+
+</html>

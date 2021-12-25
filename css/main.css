@@ -1,0 +1,240 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    font-family: monospace;
+    font-weight: 900;
+}
+html{
+    width: 100vw;
+    min-height: 100vh;
+}
+body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    background: #00000010;
+}
+label{
+    font-size: small;
+    margin: 10px 0;
+}
+input, textarea{
+    width: 100%;
+    padding: 10px;
+}
+button{
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#loader{
+    z-index: 100000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #000000ea;
+    color: #00fff2;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* videsos */
+#videos{
+    width: 40vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: #8b8b8b;
+}
+#other_peer{
+    width: 100%;
+    height: 50vh;
+}
+#peer{
+    width: 100%;
+    height: 50vh;
+}
+
+
+
+
+
+/* message box */
+.message_box{
+    width: 30vw;
+    height: 100vh;  
+    border-left: 2px solid #000;
+}
+    .messenger_wrap{
+        background: #d4cdcd;
+        position: relative;  
+        width: 100%;
+        height: calc(100vh - 200px);
+        overflow: hidden;
+    }
+    /* message ul */
+    #messages{
+        width: 100%;
+        height: 100%;
+        padding-left: 10px;
+        padding-bottom: 100px;
+        overflow: hidden scroll;
+    }
+        #messages li{
+            list-style: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 2px #000;
+            width: 80%;
+        }
+        .he{
+            background: #0300b33b;
+            margin: 10px 0;
+        }
+        .me{
+            text-align: right;
+            background: #a000a03d;
+            margin: 10px 0;
+            margin-left: 20%;
+        }
+            /* draft message */
+            #draft_message{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+            }
+            #draft_message *{
+                min-height: 80px;
+                max-height: 80px;
+            }
+
+   
+    /* mannual connection */
+    .manual_connect{
+        z-index: 1000;
+        background: #c0bebe;
+        overflow: hidden;
+        height: 200px;
+        width: 100%;
+        padding: 5px;
+    }
+    .manual_connect h3{
+        background: #949393;
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+    }
+    .pid_btns{
+        margin: 10px 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .pid_btns button{
+        width: 50%;
+    }
+    #connect_form{
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+
+
+
+
+    
+
+
+/* connection */
+.connection{
+    width: 30vw;
+    height: 100vh;
+    position: relative;    
+    border-left: 2px solid #000;
+}
+
+    .connection h3{
+        background: #949393;
+        border: 1px solid #000000;
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 5px 10px;
+    }
+
+    /* peer discovery */
+    .peer_discovery{
+        background: #e2e2e2;
+        width: 100%;   
+    }
+        #peers{
+            padding: 0 5px; 
+            padding-bottom: 100px;
+            width: 100%;
+            overflow: hidden scroll;   
+            height: calc(60vh - 30px);
+        }
+        #peers li{
+            list-style: none;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            font-size: small;
+            border-radius: 5px;
+            background: #d8d3d3;
+            border-style: groove;
+        }
+        #peers li mark{
+            background: #01990181;
+            padding: 0 10px;
+        }
+        #peers li:hover{
+            background: #b3adad;
+            border-bottom: 1px solid #000;
+        }
+
+    
+    /* log box */
+    .log_box{
+        background: #e2e2e2; 
+        width: 100%;
+        height: 40vh;
+    }
+        #logs{
+            list-style: none;
+            padding-left: 10px;
+            padding-bottom: 100px;
+            overflow-y: scroll;
+            height: calc(40vh - 30px);
+        }
+        #logs li{
+            margin: 10px 0;
+            padding: 10px;
+            font-size: small;
+            border-style: groove;
+            border-radius: 5px;
+        }
+        #logs li mark{
+            background: #00b9b081;
+            padding: 0 10px;
+        }
+
