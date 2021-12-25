@@ -38,13 +38,39 @@ button{
     left: 0;
     bottom: 0;
     right: 0;
-    background: #000000ea;
-    color: #00fff2;
-    font-size: 50px;
+    background: #000000f3;
+    font-family: monospace;
+    font-size: 100px;
+}
+#loader .wrap{
+    width: 70%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+#loader h5{
+    color: #d8ca00;
+    animation: loader 1500ms infinite;
+    overflow: hidden;
+}
+#loader p{
+    color: #2cbd00;
+    font-family: cursive;
+}
+@keyframes loader {
+    0%{ 
+        transform: translate(-400px, 400px)
+    }
+    40%{ 
+        transform: translate(-40px, 40px)
+    }
+    100%{
+        transform: translate(400px, -400px)
+    }
+}
+
 
 
 
@@ -200,21 +226,30 @@ button{
             cursor: pointer;
             font-size: small;
             border-radius: 5px;
-            background: #d8d3d3;
-            border-style: groove;
+            background: #cfcccc;
+            animation: appear 200ms forwards;
+        }
+        @keyframes appear {
+            from{ 
+                filter: brightness(2000%);
+            }
+            to{ 
+                filter: brightness(100%);
+            }
         }
         #peers li mark{
             background: #01990181;
             padding: 0 10px;
         }
         #peers li:hover{
-            background: #b3adad;
-            border-bottom: 1px solid #000;
+            background: #e8fffb;
         }
 
     
     /* log box */
     .log_box{
+        position: relative;
+        z-index: 1000000;
         background: #e2e2e2; 
         width: 100%;
         height: 40vh;

@@ -74,7 +74,7 @@ function log(msg = "", status = 0){
 
 // gun init
 let gun_relay = 'https://gun-relay-server-0.herokuapp.com/gun';
-gun_relay = '';
+// gun_relay = '';
 const gun = Gun([gun_relay]);
 const peers_list = gun.get('peers_list');
 
@@ -244,6 +244,8 @@ let CALL = null;
 function connectToPeer(){
     let other_peers_id = connect_form[0].value;
     if (!other_peers_id) return;
+
+    just_aimed_target = other_peers_id;
 
     console.log('triying ' + other_peers_id)
     log('Triying to call peer ' + other_peers_id, 2);
