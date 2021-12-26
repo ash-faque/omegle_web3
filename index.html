@@ -92,9 +92,13 @@
 	<script src="/js/gun.js"></script>
 	<!-- local script -->
 	<script src="/js/script.js"></script>
-	<!-- sw -->
+	<!-- service worker -->
 	<script>
-		
+		if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('/sw.js')
+                .then(reg => console.log('⚙ Service worker: REGISTERED'))
+                .catch(err => console.log('⚙ Service worker: FAILED TO REGISTER', err));
+        };
 	</script>
 </body>
 

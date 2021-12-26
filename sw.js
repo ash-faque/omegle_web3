@@ -1,22 +1,16 @@
 // Cache names
-const PRE_CACHE_NAME = 'PRE_V6';
-const DYNAMIC_CACHE_NAME = 'DYNAMIC_V1';
+const PRE_CACHE_NAME = 'PRE_V2';
+const DYNAMIC_CACHE_NAME = 'DYNAMIC_V0';
 // Cache assets
 const PRE_CACHE_ASSETS = [
 	'/',
 	'/index.html',
 
-	'resource/app.js',
-	'resource/boards.json',
-	'resource/style.css',
+	'/css/main.css',
 
-	'/board/index.html',
-	'/board/app.js',
-	'/board/form.js',
-	'/board/style.css',
-	'/board/form.css',
-
-	'/img/apple-touch-icon.png'
+	'/js/gun.js',
+	'/js/peer.js',
+	'/js/script.js'
 ];
 
 
@@ -62,6 +56,8 @@ self.addEventListener('activate', evt => {
 
 // fetch event
 self.addEventListener('fetch', event => {
+	// console.log(event)
+
 	// Let the browser do its default thing
 	// for non-GET requests.
 	if (event.request.method != 'GET') return;
