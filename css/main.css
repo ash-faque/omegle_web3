@@ -312,35 +312,29 @@ button{
         transition: 300ms;
         width: 80vw;
         z-index: 800;
-    }
-    .message_box{
         left: -80vw;
-
-    }
-    .connection{
-        right: -80vw;
+        top: 0;
+        bottom: 0;
     }
 
 
     .tab_trigger{
         position: absolute;
+        bottom: 0px;
+        right: -50px;
+
         display: block;
         width: 50px;
         height: 100px;
+
         word-wrap: break-word;
         writing-mode: vertical-rl;
         text-orientation: upright;
         font-weight: 900;
+
         border: 2px solid #000;
         border-radius: 5px;
     }
-    .conn_tab_trig{
-        top: 0px;
-        left: -50px;
-    }
-    .msg_tab_trig{
-        bottom: 0px;
-        right: -50px;
-    }
 
+    
 }

@@ -420,9 +420,9 @@ const openChat = () => {
     };
 };
 const openConn = () => {
-    if (getComputedStyle(conn_tab).right === '0px'){
-        conn_tab.style.right = '-80vw';
+    if (getComputedStyle(conn_tab).left === '0px'){
+        conn_tab.style.left = '-80vw';
     } else {
-        conn_tab.style.right = '0px';
+        conn_tab.style.left = '0px';
     };
 };
