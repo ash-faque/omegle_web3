@@ -296,6 +296,7 @@ button{
     #videos, .message_box, .connection{
         position: absolute;
         height: 100vh;
+        overflow: hidden;
         top: 0;
         bottom: 0;
     }
