@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
 	<!-- loader shade -->
 	<div id="loader">
 		<div class="wrap">
@@ -21,6 +22,30 @@
 			<p>wait</p>
 		</div>
 	</div>
+
+
+
+	<!-- outer wrap for pc -->
+	<div class="connection" id="connection">
+		<button class="tab_trigger conn_tab_trig" 
+			onclick="openConn()">conn</button>
+		<!-- peer discovery -->
+		<div class="peer_discovery">
+			<h3>Others to connect</h3>
+			<div class="inner_wrap">
+				<ul id="peers"></ul>
+			</div>
+		</div>
+		<hr />
+		<!-- logger -->
+		<div class="log_box">
+			<h3>Process Log</h3>
+			<div class="inner_wrap">
+				<ul id="logs"></ul>
+			</div>
+		</div>
+	</div>
+
 
 
 	<!-- videos -->
@@ -33,8 +58,9 @@
 
 
 	<!-- message -->
-	<div class="message_box">
-
+	<div class="message_box" id="message_box">
+		<button class="tab_trigger msg_tab_trig" 
+			onclick="openChat()">chat</button>
 		<!-- messager -->
 		<div class="messenger_wrap">
 			<ul id="messages">
@@ -61,29 +87,9 @@
 				<button type="button" onclick="connectToPeer()">connect</button>
 			</form>
 		</div>
-
 	</div>
 
 
-
-	<!-- outer wrap for pc -->
-	<div class="connection">
-		<!-- peer discovery -->
-		<div class="peer_discovery">
-			<h3>Others to connect</h3>
-			<div class="inner_wrap">
-				<ul id="peers"></ul>
-			</div>
-		</div>
-		<hr />
-		<!-- logger -->
-		<div class="log_box">
-			<h3>Process Log</h3>
-			<div class="inner_wrap">
-				<ul id="logs"></ul>
-			</div>
-		</div>
-	</div>
 
 	<!-- scripts -->
 	<!-- peerjs & adaptor -->

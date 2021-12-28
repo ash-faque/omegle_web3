@@ -1,7 +1,7 @@
 {
     "name":"w3omegle",
-    "short_name":"a kind of omegle",
-    "description": "why do we need a description",
+    "short_name":"w3omegle",
+    "description": "omegle like site with a semi-web3 architecture",
     "start_url": "/",
     "id": "/",
     "icons":[

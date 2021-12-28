@@ -43,7 +43,7 @@ button{
     font-size: 100px;
 }
 #loader .wrap{
-    width: 70%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -72,121 +72,9 @@ button{
 }
 
 
-
-
-/* videsos */
-#videos{
-    width: 40vw;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    background: #8b8b8b;
+.tab_trigger{
+    display: none;
 }
-#other_peer{
-    width: 100%;
-    height: 50vh;
-}
-#peer{
-    width: 100%;
-    height: 50vh;
-}
-
-
-
-
-
-/* message box */
-.message_box{
-    width: 30vw;
-    height: 100vh;  
-    border-left: 2px solid #000;
-}
-    .messenger_wrap{
-        background: #d4cdcd;
-        position: relative;  
-        width: 100%;
-        height: calc(100vh - 200px);
-        overflow: hidden;
-    }
-    /* message ul */
-    #messages{
-        width: 100%;
-        height: 100%;
-        padding-left: 10px;
-        padding-bottom: 100px;
-        overflow: hidden scroll;
-    }
-        #messages li{
-            list-style: none;
-            display: block;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 2px #000;
-            width: 80%;
-        }
-        .he{
-            background: #0300b33b;
-            margin: 10px 0;
-        }
-        .me{
-            text-align: right;
-            background: #a000a03d;
-            margin: 10px 0;
-            margin-left: 20%;
-        }
-            /* draft message */
-            #draft_message{
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                display: flex;
-                flex-wrap: nowrap;
-                align-items: center;
-            }
-            #draft_message *{
-                min-height: 80px;
-                max-height: 80px;
-            }
-
-   
-    /* mannual connection */
-    .manual_connect{
-        z-index: 1000;
-        background: #c0bebe;
-        overflow: hidden;
-        height: 200px;
-        width: 100%;
-        padding: 5px;
-    }
-    .manual_connect h3{
-        background: #949393;
-        width: 100%;
-        height: 30px;
-        text-align: center;
-        text-transform: uppercase;
-        padding: 5px 10px;
-        margin-bottom: 5px;
-    }
-    .pid_btns{
-        margin: 10px 0;
-        width: 100%;
-        display: flex;
-        flex-wrap: nowrap;
-    }
-    .pid_btns button{
-        width: 50%;
-    }
-    #connect_form{
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-    }
-
-
-
-
-
-    
 
 
 /* connection */
@@ -194,9 +82,8 @@ button{
     width: 30vw;
     height: 100vh;
     position: relative;    
-    border-left: 2px solid #000;
+    border: 2px solid #000;
 }
-
     .connection h3{
         background: #949393;
         border: 1px solid #000000;
@@ -245,7 +132,6 @@ button{
             background: #e8fffb;
         }
 
-    
     /* log box */
     .log_box{
         position: relative;
@@ -257,7 +143,7 @@ button{
         #logs{
             list-style: none;
             padding-left: 10px;
-            padding-bottom: 100px;
+            padding-bottom: 50px;
             overflow-y: scroll;
             height: calc(40vh - 30px);
         }
@@ -273,3 +159,187 @@ button{
             padding: 0 10px;
         }
 
+
+
+
+/* videsos */
+#videos{
+    z-index: -100;
+    width: 40vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: #8b8b8b;
+}
+#videos .tab_triggers{
+    display: none;
+}
+#other_peer{
+    width: 100%;
+    height: 50vh;
+}
+#peer{
+    width: 100%;
+    height: 50vh;
+}
+
+    
+
+
+
+/* message box */
+.message_box{
+    width: 30vw;
+    height: 100vh;  
+    border: 2px solid #000;
+    position: relative;
+}
+    .messenger_wrap{
+        background: #d4cdcd;
+        position: relative;  
+        width: 100%;
+        height: calc(100vh - 200px);
+        overflow: hidden;
+    }
+    /* message ul */
+    #messages{
+        width: 100%;
+        height: 100%;
+        padding-left: 10px;
+        padding-bottom: 100px;
+        overflow: hidden scroll;
+    }
+        #messages li{
+            list-style: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 2px #000;
+            width: 80%;
+        }
+        .he{
+            background: #0300b33b;
+            margin: 10px 0;
+        }
+        .me{
+            text-align: right;
+            background: #a000a03d;
+            margin: 10px 0;
+            margin-left: 20%;
+        }
+            /* draft message */
+            #draft_message{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+            }
+            #draft_message *{
+                min-height: 80px;
+                max-height: 80px;
+            }
+
+    /* mannual connection */
+    .manual_connect{
+        z-index: 1000;
+        background: #c0bebe;
+        overflow: hidden;
+        height: 200px;
+        width: 100%;
+        padding: 5px;
+    }
+    .manual_connect h3{
+        background: #949393;
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+    }
+    .pid_btns{
+        margin: 10px 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .pid_btns button{
+        width: 50%;
+    }
+    #connect_form{
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* respond to orientation */
+@media (orientation: portrait) {
+    body{
+        display: block;
+        overflow: hidden;
+    }
+
+    #videos, .message_box, .connection{
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        bottom: 0;
+    }
+
+    #videos{
+        width: 100vw;
+        left: 0;
+        right: 0;
+    }
+
+    .message_box, .connection{
+        border: 2px solid #000;
+        transition: 300ms;
+        width: 80vw;
+        z-index: 800;
+    }
+    .message_box{
+        left: -80vw;
+
+    }
+    .connection{
+        right: -80vw;
+    }
+
+
+    .tab_trigger{
+        position: absolute;
+        display: block;
+        width: 50px;
+        height: 100px;
+        word-wrap: break-word;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        font-weight: 900;
+        border: 2px solid #000;
+        border-radius: 5px;
+    }
+    .conn_tab_trig{
+        top: 0px;
+        left: -50px;
+    }
+    .msg_tab_trig{
+        bottom: 0px;
+        right: -50px;
+    }
+
+}

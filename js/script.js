@@ -138,7 +138,14 @@ navigator.mediaDevices.getUserMedia( {
 
 
 // initiate this peer
-let PEER = new Peer();
+let PEER;
+let last_peer_id = localStorage.last_peer_id;
+if ((!last_peer_id) || (!last_peer_id.length > 10)){
+    PEER = new Peer();
+} else {
+    PEER = new Peer(last_peer_id);
+};
+
 
 PEER.on('error', e => {
     loader.style.display = 'none';
@@ -212,6 +219,7 @@ PEER.on('open', id => {
     loader.style.display = 'none';
 
     my_peer_id = id;
+    localStorage.last_peer_id = my_peer_id;
     peer_id_text.value = id;
     updateGunDb();
 
@@ -396,4 +404,25 @@ chat_form.onsubmit = (ev) => {
     chat_form.reset();
     // send to peer
 
+};
+
+
+
+// for toggling the 2 tabs
+const chat_tab = document.getElementById('message_box'),
+    conn_tab = document.getElementById('connection');
+
+const openChat = () => {
+    if (getComputedStyle(chat_tab).left === '0px'){
+        chat_tab.style.left = '-80vw';
+    } else {
+        chat_tab.style.left = '0px';
+    };
+};
+const openConn = () => {
+    if (getComputedStyle(conn_tab).right === '0px'){
+        conn_tab.style.right = '-80vw';
+    } else {
+        conn_tab.style.right = '0px';
+    };
 };
