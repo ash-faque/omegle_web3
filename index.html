@@ -15,38 +15,6 @@
 
 <body>
 
-	<!-- loader shade -->
-	<div id="loader">
-		<div class="wrap">
-			<h5>🚀</h5>
-			<p>wait</p>
-		</div>
-	</div>
-
-
-
-	<!-- outer wrap for pc -->
-	<div class="connection" id="connection">
-		<button class="tab_trigger conn_tab_trig" 
-			onclick="openConn()">conn</button>
-		<!-- peer discovery -->
-		<div class="peer_discovery">
-			<h3>Others to connect</h3>
-			<div class="inner_wrap">
-				<ul id="peers"></ul>
-			</div>
-		</div>
-		<hr />
-		<!-- logger -->
-		<div class="log_box">
-			<h3>Process Log</h3>
-			<div class="inner_wrap">
-				<ul id="logs"></ul>
-			</div>
-		</div>
-	</div>
-
-
 
 	<!-- videos -->
 	<div id="videos">
@@ -59,17 +27,17 @@
 
 	<!-- message -->
 	<div class="message_box" id="message_box">
-		<button class="tab_trigger msg_tab_trig" 
-			onclick="openChat()">chat</button>
+		
 		<!-- messager -->
 		<div class="messenger_wrap">
 			<ul id="messages">
 				<li class="he">CCP</li>
 				<li class="me">stand with Honkong</li>
 			</ul>
+			<p id="typing">typing...</p>
 			<form id="draft_message">
-				<textarea name="message_text" id="message_text" 
-					placeholder="not implemented"></textarea>
+				<input type="text" name="message_text" id="message_text"
+					placeholder="nice to meet ya">
 				<button type="submit">send</button>
 			</form>
 		</div>
@@ -88,6 +56,44 @@
 			</form>
 		</div>
 	</div>
+
+
+
+
+	<!-- outer wrap for pc -->
+	<div class="connection" id="connection">
+		<!-- peer discovery -->
+		<div class="peer_discovery">
+			<h3>Others to connect</h3>
+			<div class="inner_wrap">
+				<ul id="peers"></ul>
+			</div>
+		</div>
+		<hr />
+		<!-- logger -->
+		<div class="log_box">
+			<h3>Process Log</h3>
+			<div class="inner_wrap">
+				<ul id="logs"></ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="fab">
+		<button onclick="openConn()">conn</button>	
+		<button onclick="openChat()">chat</button>
+	</div>
+	
+
+	<!-- loader shade -->
+	<div id="loader">
+		<div class="wrap">
+			<h5>🚀</h5>
+			<p>wait</p>
+		</div>
+	</div>
+
 
 
 

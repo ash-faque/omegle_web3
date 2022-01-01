@@ -21,7 +21,9 @@ const
     
     info_fill_form = document.getElementById('info_fill'),
    
-    page_title = document.querySelector('title');
+    page_title = document.querySelector('title'),
+    
+    hint = document.getElementById('typing');
 
 // for updating to gdb
 let my_peer_id = '';
@@ -314,9 +316,21 @@ const ON_DATA = (data) => {
                 console.log(data[1])
                 break; 
             case "MESSAGE":
-                console.log(data[1])
+                if (!data[1]) hint.style.display = 'none';
+                let li = document.createElement('li');
+                li.classList.add('he');
+                li.innerText = data[1];
+                chat_ul.appendChild(li);
+                li.scrollIntoView();
                 break; 
-              
+            case "TYPING":
+                console.log(data[1])
+                if (data[1]){
+                    hint.style.display = 'block';
+                } else {
+                    hint.style.display = 'none';
+                };
+                break;  
         };
 
     };
@@ -393,19 +407,30 @@ chat_form.onsubmit = (ev) => {
     ev.preventDefault();
     let msg = chat_form.message_text.value;
     if (!msg) {
-        console.log('ooo mt')
+        log('Please enter something to send')
         return;
     };
+    if (!CONN) return;
+    CONN.send(["MESSAGE", msg]);
     let li = document.createElement('li');
     li.classList.add('me');
     li.innerText = msg;
     chat_ul.appendChild(li);
     li.scrollIntoView();
     chat_form.reset();
-    // send to peer
-
 };
 
+// typing finder
+chat_form.message_text.oninput = ev => {
+    if (!CONN) return;
+    if (ev.data && (ev.data.length > 0)){
+        CONN.send(["TYPING", true]);
+        console.log('typing')
+    } else {
+        CONN.send(["TYPING", false]);
+        console.log('not typing')
+    };
+};
 
 
 // for toggling the 2 tabs
@@ -413,16 +438,21 @@ const chat_tab = document.getElementById('message_box'),
     conn_tab = document.getElementById('connection');
 
 const openChat = () => {
-    if (getComputedStyle(chat_tab).left === '0px'){
-        chat_tab.style.left = '-80vw';
+    if (getComputedStyle(chat_tab).display === 'none'){
+        chat_tab.style.display = 'block';
     } else {
-        chat_tab.style.left = '0px';
+        chat_tab.style.display = 'none';
     };
 };
 const openConn = () => {
-    if (getComputedStyle(conn_tab).left === '0px'){
-        conn_tab.style.left = '-80vw';
+    if (getComputedStyle(conn_tab).display === 'none'){
+        conn_tab.style.display = 'block';
     } else {
-        conn_tab.style.left = '0px';
+        conn_tab.style.display = 'none';
     };
+};
+screen.orientation.onchange = ev => {
+    // console.log(ev)
+    conn_tab.style.display = 'block';
+    chat_tab.style.display = 'block';
 };
