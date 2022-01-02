@@ -21,9 +21,7 @@ const
     
     info_fill_form = document.getElementById('info_fill'),
    
-    page_title = document.querySelector('title'),
-    
-    hint = document.getElementById('typing');
+    page_title = document.querySelector('title');
 
 // for updating to gdb
 let my_peer_id = '';
@@ -151,57 +149,57 @@ if ((!last_peer_id) || (!last_peer_id.length > 10)){
 
 PEER.on('error', e => {
     loader.style.display = 'none';
-
+    log("Error: " + e, 3);
     switch(e.type){
         case 'browser-incompatible':
-            log('browser-incompatible', 3)
+            // log('browser-incompatible', 3)
             console.log('browser-incompatible')
             break;
         case 'disconnected':
-            log('disconnected', 3)
+            // log('disconnected', 3)
             console.log('disconnected')
             break;
         case 'invalid-id':
             peers_list.get(just_aimed_target).put(null);
-            log('invalid-id', 3)
+            // log('invalid-id', 3)
             console.log('invalid-id')
             break;
         case 'invalid-key':   
             peers_list.get(just_aimed_target).put(null);
-            log('invalid-key', 3)
+            // log('invalid-key', 3)
             console.log('invalid-key')
             break;
         case 'network':
-            log('network')
+            // log('network')
             console.log('network')
             break;
         case 'peer-unavailable':
             peers_list.get(just_aimed_target).put(null);
-            log('peer-unavailable')
+            // log('peer-unavailable')
             console.log('peer-unavailable')
             break;
         case 'ssl-unavailable':
-            log('ssl-unavailable')
+            // log('ssl-unavailable')
             console.log('ssl-unavailable')
             break;
         case 'server-error':
-            log('server-error')
+            // log('server-error')
             console.log('server-error')
             break;
         case 'socket-error':
-            log('socket-error')
+            // log('socket-error')
             console.log('socket-error')
             break;
         case 'socket-closed':
-            log('socket-closed')
+            // log('socket-closed')
             console.log('socket-closed')
             break;
         case 'unavailable-id':
-            log('unavailable-id')
+            // log('unavailable-id')
             console.log('unavailable-id')
             break;
         case 'webrtc':
-            log('webrtc')
+            // log('webrtc')
             console.log('webrtc')
             break;
         default:
@@ -211,7 +209,7 @@ PEER.on('error', e => {
     };
 
     console.log("Peer error: " + e);
-    log("Peer error: " + e, 3);
+    // log("Peer error: " + e, 3);
 });
 
 
@@ -226,7 +224,7 @@ PEER.on('open', id => {
     updateGunDb();
 
     log("Peer connection opeed with id: " + id, 1);
-    log("See the 'Others to connect' tab to connect other people");
+    // log("See the 'Others to connect' tab to connect other people");
 
     // if is a shared link
     if (location.hash && location.hash.length > 8){
@@ -258,17 +256,17 @@ function connectToPeer(){
     just_aimed_target = other_peers_id;
 
     console.log('triying ' + other_peers_id)
-    log('Triying to call peer ' + other_peers_id, 2);
+    log('Triying to call peer: ' + other_peers_id, 2);
 
     ////////////////
     CONN = PEER.connect(other_peers_id);
     CONN.on('open', () => {
-        log('Connected on data channel of ' + other_peers_id, 1);
+        log('Connected on data channel of: ' + other_peers_id, 1);
         isOnCall = true;
         CONN.send(["PEER_ID", peer_id_text]);
     });
     CONN.on('error', e => {
-        log('Datachannel error ' + e, 3);
+        log('Datachannel error: ' + e, 3);
         console.log(e)
     });
     CONN.on('data', data => {
@@ -294,7 +292,7 @@ function connectToPeer(){
 // on getting data connection
 PEER.on('connection', IN_CONN => {
 
-    log('Incomming data connection request ', 2);
+    // log('Incomming data connection request ', 2);
     CONN = IN_CONN;
     
     isOnCall = true;
@@ -313,24 +311,17 @@ const ON_DATA = (data) => {
 
         switch(data[0]){
             case "PEER_ID":
-                console.log(data[1])
+                console.log(data[1]);
+                connect(data[1]);
                 break; 
             case "MESSAGE":
-                if (!data[1]) hint.style.display = 'none';
+                // if (!data[1]) return;
                 let li = document.createElement('li');
                 li.classList.add('he');
                 li.innerText = data[1];
                 chat_ul.appendChild(li);
                 li.scrollIntoView();
                 break; 
-            case "TYPING":
-                console.log(data[1])
-                if (data[1]){
-                    hint.style.display = 'block';
-                } else {
-                    hint.style.display = 'none';
-                };
-                break;  
         };
 
     };
@@ -341,7 +332,7 @@ const ON_DATA = (data) => {
 // on getting call
 PEER.on('call', IN_CALL => {
 
-    log('Incomming call request ', 2);
+    // log('Incomming call request ', 2);
     CALL = IN_CALL;
     isOnCall = true;
 
@@ -421,16 +412,16 @@ chat_form.onsubmit = (ev) => {
 };
 
 // typing finder
-chat_form.message_text.oninput = ev => {
-    if (!CONN) return;
-    if (ev.data && (ev.data.length > 0)){
-        CONN.send(["TYPING", true]);
-        console.log('typing')
-    } else {
-        CONN.send(["TYPING", false]);
-        console.log('not typing')
-    };
-};
+// chat_form.message_text.oninput = ev => {
+//     if (!CONN) return;
+//     if (ev.data && (ev.data.length > 0)){
+//         CONN.send(["TYPING", true]);
+//         console.log('typing')
+//     } else {
+//         CONN.send(["TYPING", false]);
+//         console.log('not typing')
+//     };
+// };
 
 
 // for toggling the 2 tabs

@@ -49,7 +49,7 @@ button{
     width: 100vw;
     height: 100vh;
 
-    position: absolute;  
+    position: fixed;  
     top: 0;
     left: 0;
     overflow: hidden;
@@ -83,7 +83,7 @@ button{
 
     display: none;
 
-    position: absolute;  
+    position: fixed;  
     top: 0;
     left: 0;
     
@@ -113,30 +113,21 @@ button{
             font-size: large;
             width: 80%;
             position: relative;
-            animation: appear 200ms forwards;
         }
         .he{
-            background: #65a793d7;
+            background: #83d6bdd7;
             margin: 10px 0;
             margin-left: 10px;
+            animation: slide_to_right 100ms forwards;
         }
         .me{
             text-align: right;
-            background: #5c85a7dc;
+            background: #85a8c5dc;
             margin: 10px 0;
             margin-left: calc(20% - 10px);
             margin-right: 10px;
+            animation: slide_to_left 100ms forwards;
         }
-            #typing{
-                display: none;
-                position: absolute;
-                text-align: center;
-                top: 0;
-                width: 100%;
-                padding: 10px;
-                background: #424242;
-                color: #d6d6d6;
-            }
             /* draft message */
             #draft_message{
                 position: absolute;
@@ -196,7 +187,7 @@ button{
 
     /* display: none; */
 
-    position: absolute;  
+    position: fixed;  
     top: 0;
     right: 0;
 
@@ -234,7 +225,7 @@ button{
             position: relative;
             background: #cfdbd9;
             border-style: groove;
-            animation: appear 200ms forwards;
+            animation: appear 100ms forwards;
         }
         #peers li mark{
             background: #0d960d81;
@@ -323,11 +314,13 @@ button{
 #loader h5{
     overflow: hidden;
     font-size: 50px;
-    animation: loader 2000ms infinite;
 }
 #loader p{
     font-family: monospace;
     text-transform: uppercase;
+    font-size: 50px;
+    animation: appear 200ms infinite;
+    position: relative;
 }
 
 
@@ -338,23 +331,16 @@ button{
 
 
 @keyframes appear {
-    from{ 
-        bottom: -50px;
-    }
-    to{ 
-        bottom: 0;
-    }
+    from{ bottom: -30px; }
+    to{ bottom: 0; }
 }
-@keyframes loader {
-    0%{ 
-        transform: translate(-400px, 400px)
-    }
-    40%{ 
-        transform: translate(-40px, 40px)
-    }
-    100%{
-        transform: translate(400px, -400px)
-    }
+@keyframes slide_to_right {
+    from{ left: -100px; bottom: -20px; }
+    to{ left: 0; bottom: 0; }
+}
+@keyframes slide_to_left {
+    from{ right: -100px; bottom: -20px; }
+    to{ right: 0; bottom: 0; }
 }
 
 
